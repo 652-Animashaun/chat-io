@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	Flack
+{% endblock %}
+
+	{% block body %}
+		<div class="row chat-window col-md-6"> 
+			<h3>{{channel}}</h3>
+			<div class="container">
+				<h3>Chat- {{username}}</h3>
+				<div id="message" class="panel-body msg_container_base">
+					{% if channel in history %}
+					<ul>
+						{% for hist in history[channel] %} 
+						<li>{{hist}}</li>
+						{% endfor %}
+					</ul>
+						
+					{% endif %}
+				
+				</div>
+			</div>
+			<div class="container">
+			<form id="new_msg">
+				<div class="form-group">
+					<input id="txt_msg" placeholder="Type message">
+				</div>
+				<button class="btn btn-primary"> Send>> </button>
+			</form>
+			</div>
+			<div>
+			<h5><a href="{{url_for('channel', channel=channel)}}">Leave Room</a></h5>
+		</div>
+
+	{% endblock %}
+
+	

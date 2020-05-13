@@ -1,1 +1,35 @@
+{% extends 'layout.html' %}
 
+{% block title %}
+	Flack
+{% endblock %}
+	{% block body %}
+
+	<div class="container">
+		<p>{{message}}</p>
+
+		<div class="row">
+			<div class="col login-wrapper">
+
+			<h4>Join Room</h4>
+			<ul class="ulc list-group list-group-flush">
+				{% for channel in channels%}
+				<li class="list-group-item"><a class="selectroom" href="{{url_for('channel', channel=channel)}}">{{channel}}</a></li>
+				{% endfor %}
+			</ul>
+			</div>
+			<div class="col login-wrapper">
+			<h4>Create Room</h4>
+
+			<form action="{{url_for('newchannel')}}" id="channel_new" method="POST">
+				<div class="form-group">
+					<input type="text" class="form-control" id="channelname" name="channel_new" placeholder="Create a new channel">
+				<button id="button" class="btn btn-dark"> New Channel </button>
+			</form>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+			{% endblock %}

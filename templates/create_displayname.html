@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	Flack- Create Screen Name
+{% endblock %}
+	{% block body %}
+<div class="container">
+		<div>
+		<h3>{{message}}</h3>
+		</div>
+		
+		<form action="{{url_for('displayname')}}" method="POST">
+			<div class="form-group">
+				<input class="form-control" name="displayname" placeholder="Enter a display name" autocomplete="off">
+			</div>
+			<button class="btn btn-primary"> Create </button>
+		</form>
+	</div>
+
+
+			{% endblock %}
